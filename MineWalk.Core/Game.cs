@@ -26,7 +26,7 @@ namespace MineWalk.Core
 
             while(true)
             {
-                logger.Log("> ");
+                Console.Write("> ");
                 var command = Console.ReadKey(true).Key;
 
                 switch (command)

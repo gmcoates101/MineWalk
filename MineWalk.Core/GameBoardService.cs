@@ -139,10 +139,9 @@ namespace MineWalk.Core
 
         private void CheckGameStatus()
         {
-            if (ReachedSafety)
+            if (ReachedSafety && StillAlive)
             {
                 Winner();
-                return;
             }
 
             if (!StillAlive)
@@ -153,7 +152,8 @@ namespace MineWalk.Core
 
         private void Winner()
         {
-            logger.Log($"{Environment.NewLine}Congratulations, you crossed the minefield in {numberOfMoves} steps, with {NumberOfLives} to spare.");
+            var life = NumberOfLives == 1 ? "life" : "lives";
+            logger.Log($"{Environment.NewLine}Congratulations, you crossed the minefield in {numberOfMoves} steps, with {NumberOfLives} {life} to spare.");
             Environment.Exit(0);
         }
 
